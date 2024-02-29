@@ -10,11 +10,12 @@ class Birthday(models.Model):
         "Фамилия", max_length=20, blank=True, help_text="Необязательное поле"
     )
     birthday = models.DateField("Дата рождения", validators=(real_age,))
+    image = models.ImageField("Фото", upload_to="birthdays_images", blank=True)
 
     class Meta:
         constraints = (
             models.UniqueConstraint(
-                fields=('first_name', 'last_name', 'birthday'),
-                name='Unique person constraint',
+                fields=("first_name", "last_name", "birthday"),
+                name="Unique person constraint",
             ),
         )
