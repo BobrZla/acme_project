@@ -86,12 +86,18 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 if DEBUG:
-    STATICFILES_DIRS = (
-        BASE_DIR / 'static',
-    )
+    STATICFILES_DIRS = (BASE_DIR / 'static',)
 else:
     STATIC_ROOT = BASE_DIR / 'static'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_ROOT = BASE_DIR / "media"
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+
+EMAIL_FILE_PATH = BASE_DIR / 'sent_emails' 
+
+LOGIN_REDIRECT_URL = 'pages:homepage'
+
+LOGIN_URL = 'login' 
