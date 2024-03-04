@@ -8,12 +8,20 @@ from .models import Birthday
 BEATLES = {'Джон Леннон', 'Пол Маккартни', 'Джордж Харрисон', 'Ринго Старр'}
 
 
+YES_OR_NO = (
+    (True, 'Yes'),
+    (False, 'No')
+)
+
 class BirthdayForm(forms.ModelForm):
 
     class Meta:
         model = Birthday
         fields = "__all__"
-        widgets = {"birthday": forms.DateInput(attrs={"type": "date"})}
+        widgets = {
+            "birthday": forms.DateInput(attrs={"type": "date"}),
+            "diner": forms.RadioSelect(choices=YES_OR_NO),
+        }
 
     def clean_first_name(self):
         first_name = self.cleaned_data['first_name']
@@ -45,7 +53,7 @@ class BirthdayForm(forms.ModelForm):
 #         label="Комментарий",
 #         required=False
 #     )
-        
+
 
 # # birthday/forms.py
 # from django import forms
@@ -62,7 +70,7 @@ class BirthdayForm(forms.ModelForm):
 #     birthday = forms.DateField(
 #         label='Дата рождения',
 #         widget=forms.DateInput(attrs={'type': 'date'}),
-#         # В аргументе validators указываем список или кортеж 
+#         # В аргументе validators указываем список или кортеж
 #         # валидаторов этого поля (валидаторов может быть несколько).
 #         validators=(real_age,), ВАЛИДАТОР
-#     )         
+#     )

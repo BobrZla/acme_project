@@ -45,3 +45,10 @@ def get_birthday_for_year(birthday, year):
         # В этом случае устанавливаем ДР 1 марта.
         calculated_birthday = date(year=year, month=3, day=1)
     return calculated_birthday 
+
+def calculate_age(born):
+    today = date.today()
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+def pushkin(value):
+    return f'{value}+Пушкин'
