@@ -2,7 +2,8 @@ body {
     background-image: url("../img/front.jpeg")
 }
 
-#acme_title {
+
+/* #acme_title {
     color: #fff;
     text-shadow:
       0 0 5px #fff,
@@ -22,6 +23,11 @@ body {
 }  
 
 
-#test {
-    color:rgb(91, 93, 192);
+#test1 {
+    color:rgb(221, 16, 16);
 }
+
+.white {
+    color: #fff;
+} */
+
